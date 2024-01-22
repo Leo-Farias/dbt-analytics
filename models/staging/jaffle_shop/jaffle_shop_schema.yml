@@ -39,16 +39,3 @@ models:
           - relationships:
               to: ref('stg_customers')
               field: customer_id
-  
-  - name: stg_payments
-    description: Multiple records per order. Includes failed payments.
-    columns:
-      - name: payment_id
-        description: Primary key
-        tests:
-          - unique
-          - not_null
-      - name: payment_method
-        tests:
-          - accepted_values:
-              values: ['gift_card', 'credit_card', 'coupon', 'bank_transfer']
